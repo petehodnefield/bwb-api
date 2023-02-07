@@ -1,17 +1,21 @@
 const { User, Thought, Post, Brewery } = require('../models');
 const {AuthenticationError} = require('apollo-server-express');
 const Brewerey = require('../models/Brewery');
+const {signToken} = require('../utils/auth')
 
 
 const resolvers = {
   Query: {
     // Admin Query
     me: async(parent, args, context) => {
+      if(context.user) {
         const userData = await User.findOne({_id: context.user._id})
-          .select('-__v -password')
-          .populate('thoughts')
-          .populate('friends')
-          return userData
+        .select('-__v -password')
+        .populate('posts')
+        .populate('friends')
+        return userData
+      }
+        
     },
 
     // User Queries
@@ -36,7 +40,8 @@ const resolvers = {
     },
 
     post: async (parent, { _id }) => {
-      return Post.findOne({ _id });
+      return Post.findOne({ _id })
+        .populate('reactions');
     },
 
     // Brewery Queries
@@ -53,7 +58,8 @@ const resolvers = {
     // User Mutations
     addUser: async (parent, args) => {
       const user = await User.create(args)
-      return  user
+      const token = signToken(user)
+      return  {token, user}
     },
 
     updateUser: async (parent, args, context) => {
@@ -69,6 +75,23 @@ const resolvers = {
       deleteUser: async (parent, args, context) => {
         const deletedUser = await User.deleteOne({_id: args._id},)
         return "User deleted!"
+      },
+
+      login: async (parent, { username, password }) => {
+        const user = await User.findOne({ username });
+      
+        if (!user) {
+          throw new AuthenticationError('Incorrect credentials');
+        }
+      
+        const correctPw = await user.isCorrectPassword(password);
+      
+        if (!correctPw) {
+          throw new AuthenticationError('Incorrect credentials');
+        }
+        
+        const token = signToken(user)
+        return {token, user}
       },
 
       addFriend: async (parent, args) => {
