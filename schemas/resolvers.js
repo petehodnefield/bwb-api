@@ -47,11 +47,11 @@ const resolvers = {
 
     // Brewery Queries
     breweries: async () => {
-      return Brewerey.find()
+      return Brewery.find()
     },
 
-    brewery: async (parent, {id}) => {
-      return Brewerey.findOne({ id })
+    brewery: async (parent, {_id}) => {
+      return Brewery.findOne({ _id })
       .select('-__v -password')
     },
   },
