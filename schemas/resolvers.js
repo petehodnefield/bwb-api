@@ -149,12 +149,12 @@ const resolvers = {
     addPost: async (parent, args) => {
       const post = await Post.create(args)
 
-      const updateUserPosts = User.findOneAndUpdate(          
+      await User.findByIdAndUpdate(          
           {_id: args.user_id},
-          {$addToSet: {posts: post._id}},
+          {$push: {posts: post._id}},
           {new: true}
         )
-      return  updateUserPosts
+      return  post
     },
 
     updatePost: async (parent, args) => {
