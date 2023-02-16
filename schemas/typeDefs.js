@@ -10,6 +10,7 @@ const typeDefs = gql`
     friends: [User]
   }
 
+
   type Post {
     _id: ID
     title: String!
@@ -20,6 +21,13 @@ const typeDefs = gql`
     createdAt: String
 
   }
+
+  type File {
+    filename: String!
+    mimetype: String!
+    encoding: String!
+  }
+
 
   type Reaction {
     _id: ID

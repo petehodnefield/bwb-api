@@ -4,6 +4,7 @@ const Brewerey = require('../models/Brewery');
 const {signToken} = require('../utils/auth')
 
 
+
 const resolvers = {
   Query: {
     // Admin Query
@@ -44,6 +45,8 @@ const resolvers = {
       return Post.findOne({ _id })
         .populate('reactions');
     },
+
+
 
     // Brewery Queries
     breweries: async () => {
@@ -156,6 +159,7 @@ const resolvers = {
         )
       return  post
     },
+
 
     updatePost: async (parent, args) => {
       const updatedPost = await Post.findOneAndUpdate(

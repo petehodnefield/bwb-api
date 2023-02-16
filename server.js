@@ -34,7 +34,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
   // Serve up static assets
   app.use(
     "/images",
-    express.static(path.join(__dirname, "../frontend/images"))
+    express.static(path.join(__dirname, "../images"))
   );
   if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/build")));

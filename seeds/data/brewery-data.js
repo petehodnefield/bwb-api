@@ -7,7 +7,7 @@ const breweryData = [
         hours: "10am - 2am",
         optionsAvailable: "GF",
         rating: "*****",
-        image: "imageUrl",
+        image: "https://bringmethenews.com/.image/t_share/MTc5OTg5Njg5NDY4NDYyMjAy/logo-l-to-r_-dan-schwarz-lift-bridge-caleb-garn-big-watt-tom-meyer-big-watt-brad-glynn-lift-bridge.jpg",
     },
     {
         name: "3rd Act",
@@ -17,7 +17,7 @@ const breweryData = [
         hours: "4pm - 12am",
         optionsAvailable: "Keto",
         rating: "****",
-        image: "imageUrl",
+        image: "https://img1.wsimg.com/isteam/ip/68f35336-5ea4-49cb-ae8e-69a832f691fb/EXT11.jpg/:/cr=t:31.46%25,l:25.25%25,w:49.5%25,h:37.08%25/rs=w:1240,h:620,cg:true,m",
     },
     {
         name: "Surly",
@@ -27,7 +27,7 @@ const breweryData = [
         hours: "10am - 4am",
         optionsAvailable: "GF",
         rating: "*****",
-        image: "imageUrl",
+        image: "https://hga.com/wp-content/uploads/2018/04/3357_001_00_Surly-pc_0519_web.jpg",
     },
     {
         name: "Indeed",
@@ -37,7 +37,7 @@ const breweryData = [
         hours: "10am - 2am",
         optionsAvailable: "GF",
         rating: "*****",
-        image: "imageUrl",
+        image: "https://eventective-media.azureedge.net/2404181_lg.jpg",
     },
     {
         name: "Summit",
@@ -47,7 +47,7 @@ const breweryData = [
         hours: "12pm - 12am",
         optionsAvailable: "GF",
         rating: "*****",
-        image: "imageUrl",
+        image: "https://www.summitbrewing.com/app/uploads/2022/05/Como-Park-Grill-2018.jpg",
     },
 ]
 
