@@ -27,6 +27,13 @@ const userData = [
         bio: "Raising a glass to good beer and great times. Sharing my beer journey one pint at a time. Follow me @grassyswan. Cheers!",
         photo: "myPhotoUrl",
     },
+    {
+        username: "testuser",
+        password: "password",
+        email: "testemail@gmail.com",
+        bio: "Raising a glass to good beer and great times. Sharing my beer journey one pint at a time. Follow me @testuser. Cheers!",
+        photo: "myPhotoUrl",
+    },
 ]
 
 module.exports = userData
