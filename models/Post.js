@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 const reactionSchema = require("./Reaction");
-const dateFormat = require('../utils/dateFormat')
+const dateFormat = require("../utils/dateFormat");
 
 const postSchema = new Schema(
   {
@@ -22,15 +22,19 @@ const postSchema = new Schema(
       max: 30,
     },
     image: {
-      type: String,
+      public_id: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     createdAt: {
-      type:  Date,
+      type: Date,
       default: Date.now,
-      get: timestamp => dateFormat(timestamp)
-
-      },
-    reactions: [reactionSchema]
+      get: (timestamp) => dateFormat(timestamp),
+    },
+    reactions: [reactionSchema],
   },
   {
     toJSON: {
